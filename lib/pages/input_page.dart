@@ -1,6 +1,7 @@
-import 'package:bmi/components/icon_content.dart';
-import 'package:bmi/components/reusable_card.dart';
+import 'package:bmi/utils/components/icon_content.dart';
+import 'package:bmi/utils/components/reusable_card.dart';
 import 'package:bmi/provider/input_page_provider.dart';
+import 'package:bmi/utils/state/state.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
@@ -35,7 +36,7 @@ class _InputPageState extends State<InputPage> {
                       builder: (context, cardProvider, _) {
                     return GestureDetector(
                       onTap: () {
-                        cardProvider.updateColor(1);
+                        cardProvider.updateColor(GenderState.male);
                       },
                       child: ReusableCard(
                         colour: provider.maleCardColor,
@@ -52,7 +53,7 @@ class _InputPageState extends State<InputPage> {
                       builder: (context, cardProvider, _) {
                     return GestureDetector(
                       onTap: () {
-                        cardProvider.updateColor(0);
+                        cardProvider.updateColor(GenderState.female);
                       },
                       child: ReusableCard(
                         colour: provider.femaleCardColor,

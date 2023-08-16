@@ -1,3 +1,4 @@
+import 'package:bmi/utils/state/state.dart';
 import 'package:flutter/material.dart';
 
 class InputPageProvider extends ChangeNotifier {
@@ -7,9 +8,8 @@ class InputPageProvider extends ChangeNotifier {
   Color maleCardColor = inactiveCardColour;
   Color femaleCardColor = inactiveCardColour;
 
-  //0 = female, 1 = male
-  void updateColor(int gender) {
-    if (gender == 0) {
+  void updateColor(GenderState gender) {
+    if (gender == GenderState.female) {
       if (femaleCardColor == inactiveCardColour) {
         femaleCardColor = activeCardColour;
         maleCardColor = inactiveCardColour;
