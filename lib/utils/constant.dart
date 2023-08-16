@@ -4,6 +4,9 @@ const kBottomContainerHeight = 80.0;
 const kBottomContainerColor = Color(0xFFEB1555);
 const kActiveCardColour = Color(0xFF1D1E33);
 const kInactiveCardColour = Color(0xFF111328);
+const kInactiveTrackColor = Color(0xFF8D8E98);
+const kThumbColor = Color(0xFFEB1555);
+const kOverlayColor = Color(0x29EB1555);
 
 const kLabelTextStyle = TextStyle(
   fontSize: 18,
