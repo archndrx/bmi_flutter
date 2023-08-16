@@ -7,11 +7,10 @@ const kInactiveCardColour = Color(0xFF111328);
 const kInactiveTrackColor = Color(0xFF8D8E98);
 const kThumbColor = Color(0xFFEB1555);
 const kOverlayColor = Color(0x29EB1555);
+const kRoundIconBttonColor = Color(0xFF4C4F5E);
 
 const kLabelTextStyle = TextStyle(
-  fontSize: 18,
-  color: Color(0XFF8D8E98),
-);
+    fontSize: 18, color: Color(0XFF8D8E98), fontWeight: FontWeight.w700);
 
 const kNumberTextStyle = TextStyle(
   fontSize: 50,
