@@ -1,11 +1,13 @@
 import 'package:bmi/components/icon_content.dart';
 import 'package:bmi/components/reusable_card.dart';
+import 'package:bmi/provider/input_page_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 
 const bottomContainerHeight = 80.0;
-const activeCardColour = Color(0xFF1D1E33);
 const bottomContainerColor = Color(0xFFEB1555);
+const activeCardColour = Color(0xFF1D1E33);
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -17,6 +19,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<InputPageProvider>(context, listen: false);
     return Scaffold(
       appBar: AppBar(
         title: const Text("BMI CALCULATOR"),
@@ -26,24 +29,40 @@ class _InputPageState extends State<InputPage> {
         children: [
           Expanded(
             child: Row(
-              children: const [
+              children: [
                 Expanded(
-                  child: ReusableCard(
-                    colour: activeCardColour,
-                    cardChild: IconContent(
-                      text: 'MALE',
-                      icon: FontAwesomeIcons.mars,
-                    ),
-                  ),
+                  child: Consumer<InputPageProvider>(
+                      builder: (context, cardProvider, _) {
+                    return GestureDetector(
+                      onTap: () {
+                        cardProvider.updateColor(1);
+                      },
+                      child: ReusableCard(
+                        colour: provider.maleCardColor,
+                        cardChild: const IconContent(
+                          text: 'MALE',
+                          icon: FontAwesomeIcons.mars,
+                        ),
+                      ),
+                    );
+                  }),
                 ),
                 Expanded(
-                  child: ReusableCard(
-                    colour: activeCardColour,
-                    cardChild: IconContent(
-                      text: 'FEMALE',
-                      icon: FontAwesomeIcons.venus,
-                    ),
-                  ),
+                  child: Consumer<InputPageProvider>(
+                      builder: (context, cardProvider, _) {
+                    return GestureDetector(
+                      onTap: () {
+                        cardProvider.updateColor(0);
+                      },
+                      child: ReusableCard(
+                        colour: provider.femaleCardColor,
+                        cardChild: const IconContent(
+                          text: 'FEMALE',
+                          icon: FontAwesomeIcons.venus,
+                        ),
+                      ),
+                    );
+                  }),
                 ),
               ],
             ),
