@@ -1,5 +1,7 @@
 import 'package:bmi/pages/input_page.dart';
+import 'package:bmi/provider/input_page_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,15 +12,22 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData.dark().copyWith(
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF0A0E21),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => InputPageProvider(),
         ),
-        scaffoldBackgroundColor: const Color(0xFF0A0E21),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData.dark().copyWith(
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Color(0xFF0A0E21),
+          ),
+          scaffoldBackgroundColor: const Color(0xFF0A0E21),
+        ),
+        home: const InputPage(),
       ),
-      home: const InputPage(),
     );
   }
 }
