@@ -1,3 +1,4 @@
+import 'package:bmi/pages/result_page.dart';
 import 'package:bmi/utils/components/icon_content.dart';
 import 'package:bmi/utils/components/reusable_card.dart';
 import 'package:bmi/utils/components/round_icon_button.dart';
@@ -209,11 +210,22 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: kBottomContainerColor,
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-            height: kBottomContainerHeight,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ResultPage()));
+            },
+            child: Container(
+              color: kBottomContainerColor,
+              margin: const EdgeInsets.only(top: 10),
+              width: double.infinity,
+              height: kBottomContainerHeight,
+              child: const Center(
+                  child: Text(
+                "CALCULATE",
+                style: kLargeButtonTextStyle,
+              )),
+            ),
           )
         ],
       ),
