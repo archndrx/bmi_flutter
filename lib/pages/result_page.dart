@@ -4,7 +4,15 @@ import 'package:bmi/utils/constant.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
-  const ResultPage({super.key});
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
+  const ResultPage(
+      {super.key,
+      required this.bmiResult,
+      required this.resultText,
+      required this.interpretation});
 
   @override
   Widget build(BuildContext context) {
@@ -31,19 +39,27 @@ class ResultPage extends StatelessWidget {
                 cardChild: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
-                      "NORMAL",
-                      style: kResultTextStyle,
+                      interpretation.toUpperCase(),
+                      style: kResultTextStyle.copyWith(
+                          color: interpretation == 'Underweight'
+                              ? yellowColor
+                              : interpretation == 'Normal'
+                                  ? greenColor
+                                  : redColor),
                     ),
                     Text(
-                      "18.9",
+                      bmiResult,
                       style: kBMITextStyle,
                     ),
-                    Text(
-                      "You BMI result is blbabalblablablalblabla",
-                      textAlign: TextAlign.center,
-                      style: kBodyTextStyle,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        resultText,
+                        textAlign: TextAlign.center,
+                        style: kBodyTextStyle,
+                      ),
                     ),
                   ],
                 ),
