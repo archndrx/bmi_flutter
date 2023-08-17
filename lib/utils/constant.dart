@@ -9,6 +9,12 @@ const kThumbColor = Color(0xFFEB1555);
 const kOverlayColor = Color(0x29EB1555);
 const kRoundIconBttonColor = Color(0xFF4C4F5E);
 
+const yellowColor = Color.fromARGB(255, 201, 216, 36);
+const greenColor = Color(
+  0xFF24D876,
+);
+const redColor = Color.fromARGB(255, 216, 51, 36);
+
 const kLabelTextStyle = TextStyle(
     fontSize: 18, color: Color(0XFF8D8E98), fontWeight: FontWeight.w700);
 
@@ -28,9 +34,6 @@ const kTitleTextStyle = TextStyle(
 );
 
 const kResultTextStyle = TextStyle(
-  color: Color(
-    0xFF24D876,
-  ),
   fontSize: 22,
   fontWeight: FontWeight.bold,
 );
