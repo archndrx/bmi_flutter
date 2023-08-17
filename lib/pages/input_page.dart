@@ -210,10 +210,16 @@ class _InputPageState extends State<InputPage> {
           BottomButton(
             title: 'CALCULATE',
             onTap: () {
+              final provider =
+                  Provider.of<InputPageProvider>(context, listen: false);
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ResultPage(),
+                  builder: (context) => ResultPage(
+                    bmiResult: provider.calculateBMI(),
+                    interpretation: provider.getResult(),
+                    resultText: provider.getInterpretation(),
+                  ),
                 ),
               );
             },
